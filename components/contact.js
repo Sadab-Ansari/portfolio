@@ -14,7 +14,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="px-6 md:px-16 py-16 bg-transparent">
-      <div className="mb-12 flex items-center gap-3">
+      <div className="mb-12 flex items-center gap-3 ml-28">
         {/* Gradient Line before heading */}
         <span className="h-[2px] w-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded" />
 
