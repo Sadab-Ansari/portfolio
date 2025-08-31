@@ -1,9 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState, useEffect, useMemo } from "react";
+import { Pacifico } from "next/font/google";
+
+// Load Pacifico at module scope
+const pacificoFont = Pacifico({ subsets: ["latin"], weight: "400" });
 
 export default function Hero() {
-  // ✅ Wrap in useMemo to avoid ESLint warning about deps
   const skills = useMemo(
     () => [
       "Web Developer",
@@ -56,7 +59,7 @@ export default function Hero() {
 
         {/* Typing Skills */}
         <motion.p
-          className="mt-4 text-xl md:text-3xl font-medium text-gray-700 h-10"
+          className={`mt-4 text-xl md:text-3xl font-medium text-gray-700 h-10 ${pacificoFont.className}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}

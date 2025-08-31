@@ -1,5 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
+import { Karla } from "next/font/google";
+
+const karla = Karla({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 export default function AboutMe() {
   const timeline = [

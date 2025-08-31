@@ -1,0 +1,105 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+const projects = [
+  {
+    src: "/images/im1.png",
+    title: "Portfolio Website",
+    description:
+      "A sleek personal portfolio built with modern UI/UX principles.",
+    skills: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    link: "https://portfolio-oqdx.vercel.app",
+  },
+  {
+    src: "/images/im2.png",
+    title: "Fake Document Detector",
+    description:
+      "AI-powered app confidence-based document authenticity prediction.",
+    skills: ["Next.js", "Tailwind CSS", "FastAPI"],
+    link: "https://fake-docs-detection-ws.vercel.app",
+  },
+  {
+    src: "/images/im3.png",
+    title: "EventSphere",
+    description:
+      "A full-stack event management platform with real-time features.",
+    skills: ["Next.js", "Express", "Framer Motion", "Tailwind CSS"],
+    link: "https://event-sphere-6q0.vercel.app",
+  },
+];
+
+export default function Projects() {
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  return (
+    <section id="projects" className="px-6 md:px-16 py-12 bg-transparent">
+      <div className="mb-8 ml-28 flex items-center gap-3">
+        {/* Gradient Line before heading */}
+        <span className="h-[2px] w-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded" />
+
+        <h2 className="text-sm uppercase tracking-widest text-gray-700 font-semibold">
+          My Work
+        </h2>
+      </div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.2 }}
+        className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12"
+      >
+        {projects.map((p, i) => (
+          <motion.div
+            key={i}
+            variants={cardVariants}
+            whileHover={{ scale: 1.02 }}
+            className="rounded-2xl bg-transparent"
+          >
+            {/* Project Screenshot */}
+            <div className="relative w-full h-80 rounded-2xl overflow-hidden shadow-md">
+              <Image src={p.src} alt={p.title} fill className="object-cover" />
+            </div>
+
+            {/* Info Box */}
+            <div className="mt-4 bg-transparent rounded-2xl shadow-md border border-gray-200 p-6 flex flex-col gap-4">
+              {/* Title + Button */}
+              <div className="flex items-center justify-between">
+                <h3 className="text-xl font-semibold text-gray-900">
+                  {p.title}
+                </h3>
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-indigo-500 to-blue-600 rounded-xl shadow hover:from-indigo-600 hover:to-blue-700 transition"
+                >
+                  Live Demo
+                </a>
+              </div>
+
+              {/* Description */}
+              <p className="text-gray-600 text-sm">{p.description}</p>
+
+              {/* Skills */}
+              <div className="flex flex-wrap gap-2">
+                {p.skills.map((skill, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1 text-xs font-medium bg-gray-100 border border-gray-200 rounded-full"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
+  );
+}
