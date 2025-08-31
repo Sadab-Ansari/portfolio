@@ -18,24 +18,28 @@ export default function AboutMe() {
   ];
 
   return (
-    <section id="about" className="w-full flex justify-center py-20">
+    <section id="about" className="w-full flex justify-center py-20 px-4">
       {/* Match navbar container size (max-w-7xl + px-6) */}
       <div className="relative w-full max-w-6xl">
         {/* Vertical Line */}
-        <div className="absolute left-1/2 top-0 h-full w-[2px] bg-gradient-to-b from-blue-400 to-blue-600" />
+        <div className="absolute left-1/2 top-0 h-full w-[2px] bg-gradient-to-b from-blue-400 to-blue-600 hidden md:block" />
 
         {/* Heading aligned left */}
-        <div className="mb-16">
-          <h2 className="text-left text-sm uppercase tracking-widest text-gray-500">
+        <div className="mb-4 flex items-center gap-3">
+          {/* Gradient Line before heading */}
+          <span className="h-[2px] w-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded" />
+
+          <h2 className="text-sm uppercase tracking-widest text-gray-700 font-semibold">
             About Me
           </h2>
-          <p className="text-left text-gray-600">
-            Blending creativity with code & intelligence with data
-          </p>
         </div>
 
+        <p className="text-left text-gray-700 mb-12">
+          Blending creativity with code & intelligence with data
+        </p>
+
         {/* Timeline */}
-        <div className="space-y-16">
+        <div className="space-y-12 md:space-y-16">
           {timeline.map((item, index) => (
             <motion.div
               key={index}
@@ -44,15 +48,19 @@ export default function AboutMe() {
               transition={{ duration: 0.6 }}
               viewport={{ once: false, amount: 0.3 }} // 🔥 animate every scroll
               className={`relative w-full flex ${
-                index % 2 === 0 ? "justify-start" : "justify-end"
+                index % 2 === 0 ? "md:justify-start" : "md:justify-end"
               }`}
             >
-              {/* Dot */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full shadow-md" />
+              {/* Dot (only visible on desktop) */}
+              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full shadow-md" />
 
-              {/* Card: stretch same as navbar container (about 50% width each side) */}
-              <div className="w-[46%] bg-white/80 border border-gray-200 shadow-md rounded-2xl p-6 backdrop-blur-sm">
-                <p className="text-lg font-medium text-gray-800">{item.text}</p>
+              {/* Card */}
+              <div
+                className={`w-full md:w-[46%] bg-white border border-gray-200 shadow-md rounded-2xl p-6`}
+              >
+                <p className="text-base md:text-lg font-medium text-gray-800">
+                  {item.text}
+                </p>
               </div>
             </motion.div>
           ))}
