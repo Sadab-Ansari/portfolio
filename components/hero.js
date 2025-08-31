@@ -1,35 +1,36 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 export default function Hero() {
-  const skills = [
-    "web Developer",
-    "ML Enthusiast",
-    "Creative Designer",
-    "Tech Enthusiast",
-  ];
+  // ✅ Wrap in useMemo to avoid ESLint warning about deps
+  const skills = useMemo(
+    () => [
+      "Web Developer",
+      "ML Enthusiast",
+      "Creative Designer",
+      "Tech Enthusiast",
+    ],
+    []
+  );
+
   const [displayedText, setDisplayedText] = useState("");
   const [skillIndex, setSkillIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     const currentSkill = skills[skillIndex];
-    let typingSpeed = isDeleting ? 70 : 120; // speed control
+    let typingSpeed = isDeleting ? 70 : 120;
 
     const handleTyping = () => {
       if (!isDeleting && displayedText.length < currentSkill.length) {
-        // Typing forward
         setDisplayedText(currentSkill.slice(0, displayedText.length + 1));
       } else if (isDeleting && displayedText.length > 0) {
-        // Deleting backward
         setDisplayedText(currentSkill.slice(0, displayedText.length - 1));
       } else if (!isDeleting && displayedText.length === currentSkill.length) {
-        // Finished typing -> wait before deleting
         setTimeout(() => setIsDeleting(true), 1000);
         return;
       } else if (isDeleting && displayedText.length === 0) {
-        // Finished deleting -> move to next word
         setIsDeleting(false);
         setSkillIndex((prev) => (prev + 1) % skills.length);
         return;
@@ -61,18 +62,18 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
         >
           {displayedText}
-          <span className="animate-pulse">|</span> {/* blinking cursor */}
+          <span className="animate-pulse">|</span>
         </motion.p>
 
         {/* Quote */}
         <motion.p
-          className="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
+          className="mt-6 text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          "I design interactive and user-friendly experiences, blending
-          creativity with technology to bring ideas to life."
+          &quot;I design interactive and user-friendly experiences, blending
+          creativity with technology to bring ideas to life.&quot;
         </motion.p>
       </div>
     </section>

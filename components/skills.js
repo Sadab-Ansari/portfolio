@@ -112,7 +112,7 @@ export default function Skills() {
             </h2>
           </div>
           <p className={`text-lg text-gray-700 italic ${karla.className}`}>
-            Tools & technologies I work with
+            Tools &amp; technologies I work with
           </p>
         </div>
 
