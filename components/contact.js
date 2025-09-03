@@ -14,12 +14,12 @@ export default function Contact() {
 
   return (
     <section id="contact" className="px-6 md:px-16 py-16 bg-transparent">
-      <div className="mb-12 flex items-center gap-3 ml-10">
+      <div className="mb-8 flex items-center gap-3 ml-0 lg:ml-10">
         {/* Gradient Line before heading */}
         <span className="h-[2px] w-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded" />
 
         <h2 className="text-sm uppercase tracking-widest text-gray-700 font-semibold">
-          Contact Me
+          About Me
         </h2>
       </div>
 
