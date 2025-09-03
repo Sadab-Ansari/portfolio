@@ -26,7 +26,7 @@ import {
   SiRailway,
   SiFigma,
 } from "react-icons/si";
-import { FaAws, FaPalette } from "react-icons/fa";
+import { FaPalette } from "react-icons/fa";
 
 const karla = Karla({
   subsets: ["latin"],
@@ -96,7 +96,6 @@ export default function Skills() {
         { name: "Netlify", icon: <SiNetlify className="text-green-500" /> },
         { name: "Render", icon: <SiRender className="text-blue-500" /> },
         { name: "Railway", icon: <SiRailway className="text-purple-600" /> },
-        { name: "AWS", icon: <FaAws className="text-orange-500" /> },
       ],
     },
   ];
