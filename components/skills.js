@@ -24,10 +24,10 @@ import {
   SiFastapi,
   SiRender,
   SiRailway,
+  SiFigma,
 } from "react-icons/si";
-import { FaAws } from "react-icons/fa";
+import { FaAws, FaPalette } from "react-icons/fa";
 
-// Import Karla font
 const karla = Karla({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
@@ -73,6 +73,14 @@ export default function Skills() {
       ],
     },
     {
+      title: "Design",
+      percentage: 70,
+      skills: [
+        { name: "Figma", icon: <SiFigma className="text-purple-600" /> },
+        { name: "Canva", icon: <FaPalette className="text-pink-500" /> },
+      ],
+    },
+    {
       title: "Dev Tools",
       percentage: 85,
       skills: [
@@ -101,7 +109,6 @@ export default function Skills() {
   return (
     <section id="skills" className="w-full flex justify-center mt-24">
       <div className="w-[90%] max-w-6xl">
-        {/* Section Heading */}
         <div className="flex flex-col items-start mb-10">
           <div className="flex items-center gap-3 mb-2">
             <span className="h-[2px] w-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded" />
@@ -116,10 +123,8 @@ export default function Skills() {
           </p>
         </div>
 
-        {/* Categories */}
         {categories.map((cat, i) => (
           <div key={i} className="mb-16">
-            {/* Top Center Progress */}
             <div className="flex flex-col items-center justify-center mb-8">
               <p
                 className={`text-xl font-semibold text-gray-900 mb-2 ${karla.className}`}
@@ -136,7 +141,6 @@ export default function Skills() {
               </div>
             </div>
 
-            {/* Skills Grid */}
             <motion.div
               initial="hidden"
               whileInView="show"

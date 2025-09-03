@@ -15,7 +15,6 @@ export default function Contact() {
   return (
     <section id="contact" className="px-6 md:px-16 py-16 bg-transparent">
       <div className="mb-8 flex items-center gap-3 ml-0 lg:ml-10">
-        {/* Gradient Line before heading */}
         <span className="h-[2px] w-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded" />
 
         <h2 className="text-sm uppercase tracking-widest text-gray-700 font-semibold">
@@ -29,7 +28,6 @@ export default function Contact() {
         viewport={{ once: false, amount: 0.2 }}
         className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"
       >
-        {/* Contact Card: Email */}
         <motion.div
           variants={cardVariants}
           className="flex flex-col items-center justify-center p-8 bg-white/10 backdrop-blur-md border border-gray-200 rounded-2xl shadow-lg text-center"
@@ -45,7 +43,6 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        {/* Contact Card: Socials */}
         <motion.div
           variants={cardVariants}
           className="flex flex-col items-center justify-center p-8 bg-white/10 backdrop-blur-md border border-gray-200 rounded-2xl shadow-lg text-center"

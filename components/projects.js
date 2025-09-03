@@ -39,7 +39,6 @@ export default function Projects() {
   return (
     <section id="projects" className="px-6 md:px-16 py-12 bg-transparent">
       <div className="mb-8 flex items-center gap-3 ml-0 lg:ml-10">
-        {/* Gradient Line before heading */}
         <span className="h-[2px] w-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded" />
 
         <h2 className="text-sm uppercase tracking-widest text-gray-700 font-semibold">
@@ -60,14 +59,11 @@ export default function Projects() {
             whileHover={{ scale: 1.02 }}
             className="rounded-2xl bg-transparent"
           >
-            {/* Project Screenshot */}
             <div className="relative w-full h-80 rounded-2xl overflow-hidden shadow-md">
               <Image src={p.src} alt={p.title} fill className="object-cover" />
             </div>
 
-            {/* Info Box */}
             <div className="mt-4 bg-transparent rounded-2xl shadow-md border border-gray-200 p-6 flex flex-col gap-4">
-              {/* Title + Button */}
               <div className="flex items-center justify-between">
                 <h3 className="text-xl font-semibold text-gray-900">
                   {p.title}
@@ -82,10 +78,8 @@ export default function Projects() {
                 </a>
               </div>
 
-              {/* Description */}
               <p className="text-gray-600 text-sm">{p.description}</p>
 
-              {/* Skills */}
               <div className="flex flex-wrap gap-2">
                 {p.skills.map((skill, idx) => (
                   <span

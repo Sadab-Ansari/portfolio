@@ -17,7 +17,6 @@ export default function BackgroundGrid() {
     function drawGrid() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // only draw when hovering inside
       if (mouse.x === -1000 && mouse.y === -1000) return;
 
       for (let x = 0; x < canvas.width; x += gridSize) {
@@ -30,7 +29,6 @@ export default function BackgroundGrid() {
         }
       }
 
-      // draw cursor dot
       ctx.beginPath();
       ctx.arc(smoothMouse.x, smoothMouse.y, 3, 0, Math.PI * 2);
       ctx.fillStyle = "#333";
@@ -43,7 +41,6 @@ export default function BackgroundGrid() {
     }
 
     function animate() {
-      // smooth chasing effect
       smoothMouse.x += (mouse.x - smoothMouse.x) * 0.07;
       smoothMouse.y += (mouse.y - smoothMouse.y) * 0.07;
 
@@ -51,7 +48,6 @@ export default function BackgroundGrid() {
       requestAnimationFrame(animate);
     }
 
-    // Event listeners
     window.addEventListener("resize", resizeCanvas);
     window.addEventListener("mousemove", (e) => {
       mouse.x = e.clientX;
@@ -62,7 +58,6 @@ export default function BackgroundGrid() {
       mouse.y = -1000;
     });
 
-    // Init
     resizeCanvas();
     animate();
 

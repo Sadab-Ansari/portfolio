@@ -16,12 +16,10 @@ export default function Navbar() {
         border border-gray-200
       "
     >
-      {/* Logo (Left) */}
       <div className="text-xl font-bold tracking-wide">
         My<span className="text-blue-500">Portfolio</span>
       </div>
 
-      {/* Links (Center - only on desktop) */}
       <div className="hidden md:flex gap-8 text-md font-medium absolute left-1/2 -translate-x-1/2">
         {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
           <a
@@ -42,9 +40,7 @@ export default function Navbar() {
         ))}
       </div>
 
-      {/* Right Section (GitHub + Mobile Menu Button) */}
       <div className="flex items-center gap-4">
-        {/* GitHub */}
         <a
           href="https://github.com/Sadab-Ansari"
           target="_blank"
@@ -54,7 +50,6 @@ export default function Navbar() {
           <FaGithub size={24} />
         </a>
 
-        {/* Hamburger menu (mobile only) */}
         <button
           className="md:hidden text-gray-700 hover:text-blue-500"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -63,7 +58,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <div className="absolute top-16 right-6 bg-white border border-gray-300 rounded-lg shadow-lg flex flex-col items-start p-4 gap-4 md:hidden">
           {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
