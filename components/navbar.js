@@ -1,12 +1,11 @@
 "use client";
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
-import { Menu, X, Sun, Moon } from "lucide-react"; // hamburger + close icons + dark mode icons
-import { useDarkMode } from "@/contexts/DarkModeContext";
+import { Menu, X } from "lucide-react"; // hamburger + close icons
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
+
 
   return (
     <nav
@@ -44,14 +43,6 @@ export default function Navbar() {
       </div>
 
       <div className="flex items-center gap-4">
-        <button
-          onClick={toggleDarkMode}
-          className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
-          aria-label="Toggle dark mode"
-        >
-          {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}
-        </button>
-
         <a
           href="https://github.com/Sadab-Ansari"
           target="_blank"
