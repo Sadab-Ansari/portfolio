@@ -75,3 +75,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
+// testing the scaling
