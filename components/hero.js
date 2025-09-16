@@ -47,7 +47,7 @@ export default function Hero() {
     <section id="home" className="w-full flex justify-center mt-12 pt-52 mb-52">
       <div className="w-[90%] max-w-5xl text-center">
         <motion.h1
-          className="text-4xl md:text-5xl font-bold text-gray-900"
+          className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -56,7 +56,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          className={`mt-4 text-xl md:text-3xl font-medium text-gray-700 h-10 ${pacificoFont.className}`}
+          className={`mt-4 text-xl md:text-3xl font-medium text-gray-700 dark:text-gray-300 h-10 ${pacificoFont.className}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
@@ -66,7 +66,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.p
-          className="mt-6 text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed"
+          className="mt-6 text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}

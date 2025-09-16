@@ -112,12 +112,14 @@ export default function Skills() {
           <div className="flex items-center gap-3 mb-2">
             <span className="h-[2px] w-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded" />
             <h2
-              className={`text-sm tracking-[0.25em] text-gray-700 uppercase ${karla.className}`}
+              className={`text-sm tracking-[0.25em] text-gray-700 dark:text-gray-300 uppercase ${karla.className}`}
             >
               Skills
             </h2>
           </div>
-          <p className={`text-lg text-gray-700 italic ${karla.className}`}>
+          <p
+            className={`text-lg text-gray-700 dark:text-gray-300 italic ${karla.className}`}
+          >
             Tools &amp; technologies I work with
           </p>
         </div>
@@ -126,11 +128,11 @@ export default function Skills() {
           <div key={i} className="mb-16">
             <div className="flex flex-col items-center justify-center mb-8">
               <p
-                className={`text-xl font-semibold text-gray-900 mb-2 ${karla.className}`}
+                className={`text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2 ${karla.className}`}
               >
                 {cat.title} {cat.percentage}%
               </p>
-              <div className="w-64 h-3 bg-gray-200 rounded-full overflow-hidden">
+              <div className="w-64 h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden transition-colors duration-300">
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${cat.percentage}%` }}
@@ -151,11 +153,11 @@ export default function Skills() {
                   key={j}
                   variants={cardVariants}
                   whileHover={{ scale: 1.05 }}
-                  className="flex flex-col items-center justify-center p-6 rounded-2xl border border-gray-200 bg-white/10 backdrop-blur-sm shadow-lg cursor-default"
+                  className="flex flex-col items-center justify-center p-6 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-800/10 backdrop-blur-sm shadow-lg cursor-default transition-colors duration-300"
                 >
                   <div className="text-4xl mb-3">{skill.icon}</div>
                   <p
-                    className={`text-lg font-semibold text-gray-900 ${karla.className}`}
+                    className={`text-lg font-semibold text-gray-900 dark:text-gray-100 ${karla.className}`}
                   >
                     {skill.name}
                   </p>

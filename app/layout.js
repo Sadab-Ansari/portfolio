@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import BackgroundGrid from "@/components/BackgroundGrid";
+import { DarkModeProvider } from "@/contexts/DarkModeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,10 +21,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="relative bg-white text-gray-900">
-        <BackgroundGrid />
-
-        {children}
+      <body className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+        <DarkModeProvider>
+          <BackgroundGrid />
+          {children}
+        </DarkModeProvider>
       </body>
     </html>
   );

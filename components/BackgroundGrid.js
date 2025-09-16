@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useRef } from "react";
+import { useDarkMode } from "@/contexts/DarkModeContext";
 
 export default function BackgroundGrid() {
   const canvasRef = useRef(null);
+  const { isDarkMode } = useDarkMode();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -24,14 +26,20 @@ export default function BackgroundGrid() {
           const dist = Math.hypot(smoothMouse.x - x, smoothMouse.y - y);
           const intensity = Math.max(0, 1 - dist / fadeRadius);
 
-          ctx.strokeStyle = `rgba(100, 100, 100, ${intensity * 0.6})`;
+          // Use different colors based on dark mode
+          const strokeColor = isDarkMode
+            ? `rgba(156, 163, 175, ${intensity * 0.4})` // gray-400 with lower opacity for dark mode
+            : `rgba(100, 100, 100, ${intensity * 0.6})`; // original gray for light mode
+
+          ctx.strokeStyle = strokeColor;
           ctx.strokeRect(x, y, gridSize, gridSize);
         }
       }
 
       ctx.beginPath();
       ctx.arc(smoothMouse.x, smoothMouse.y, 3, 0, Math.PI * 2);
-      ctx.fillStyle = "#333";
+      // Use different dot color based on dark mode
+      ctx.fillStyle = isDarkMode ? "#9CA3AF" : "#333"; // gray-400 for dark, dark gray for light
       ctx.fill();
     }
 
@@ -66,7 +74,7 @@ export default function BackgroundGrid() {
       window.removeEventListener("mousemove", () => {});
       window.removeEventListener("mouseleave", () => {});
     };
-  }, []);
+  }, [isDarkMode]); // Add isDarkMode as dependency
 
   return (
     <canvas

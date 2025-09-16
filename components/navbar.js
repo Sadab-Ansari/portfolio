@@ -1,19 +1,22 @@
 "use client";
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
-import { Menu, X } from "lucide-react"; // hamburger + close icons
+import { Menu, X, Sun, Moon } from "lucide-react"; // hamburger + close icons + dark mode icons
+import { useDarkMode } from "@/contexts/DarkModeContext";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   return (
     <nav
       className="
         fixed top-6 left-1/2 -translate-x-1/2 
         flex items-center justify-between w-11/12 max-w-6xl h-14
-        bg-white text-gray-900 
+        bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
         px-6 md:px-8 rounded-full shadow-xl z-50 
-        border border-gray-200
+        border border-gray-200 dark:border-gray-700
+        transition-colors duration-300
       "
     >
       <div className="text-xl font-bold tracking-wide">
@@ -41,17 +44,25 @@ export default function Navbar() {
       </div>
 
       <div className="flex items-center gap-4">
+        <button
+          onClick={toggleDarkMode}
+          className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+          aria-label="Toggle dark mode"
+        >
+          {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}
+        </button>
+
         <a
           href="https://github.com/Sadab-Ansari"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-700 hover:text-blue-500 transition-colors"
+          className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
         >
           <FaGithub size={24} />
         </a>
 
         <button
-          className="md:hidden text-gray-700 hover:text-blue-500"
+          className="md:hidden text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -59,12 +70,12 @@ export default function Navbar() {
       </div>
 
       {menuOpen && (
-        <div className="absolute top-16 right-6 bg-white border border-gray-300 rounded-lg shadow-lg flex flex-col items-start p-4 gap-4 md:hidden">
+        <div className="absolute top-16 right-6 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg flex flex-col items-start p-4 gap-4 md:hidden transition-colors duration-300">
           {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="text-gray-700 hover:text-blue-500 transition-colors"
+              className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
               onClick={() => setMenuOpen(false)}
             >
               {item}

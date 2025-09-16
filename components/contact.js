@@ -17,7 +17,7 @@ export default function Contact() {
       <div className="mb-8 flex items-center gap-3 ml-0 lg:ml-10">
         <span className="h-[2px] w-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded" />
 
-        <h2 className="text-sm uppercase tracking-widest text-gray-700 font-semibold">
+        <h2 className="text-sm uppercase tracking-widest text-gray-700 dark:text-gray-300 font-semibold">
           About Me
         </h2>
       </div>
@@ -30,10 +30,12 @@ export default function Contact() {
       >
         <motion.div
           variants={cardVariants}
-          className="flex flex-col items-center justify-center p-8 bg-white/10 backdrop-blur-md border border-gray-200 rounded-2xl shadow-lg text-center"
+          className="flex flex-col items-center justify-center p-8 bg-white/10 dark:bg-gray-800/10 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-2xl shadow-lg text-center transition-colors duration-300"
         >
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">Email</h3>
-          <p className="text-gray-700">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+            Email
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300">
             <a
               href="mailto:sadabansari451@gmail.com"
               className="hover:underline"
@@ -45,23 +47,25 @@ export default function Contact() {
 
         <motion.div
           variants={cardVariants}
-          className="flex flex-col items-center justify-center p-8 bg-white/10 backdrop-blur-md border border-gray-200 rounded-2xl shadow-lg text-center"
+          className="flex flex-col items-center justify-center p-8 bg-white/10 dark:bg-gray-800/10 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-2xl shadow-lg text-center transition-colors duration-300"
         >
-          <h3 className="text-xl font-semibold text-gray-900 mb-4">Socials</h3>
-          <div className="flex gap-6 text-2xl text-gray-900">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+            Socials
+          </h3>
+          <div className="flex gap-6 text-2xl text-gray-900 dark:text-gray-100">
             <a
               href="https://linkedin.com/in/yourprofile"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <SiLinkedin className="hover:text-blue-600 transition" />
+              <SiLinkedin className="hover:text-blue-600 dark:hover:text-blue-400 transition" />
             </a>
             <a
               href="https://github.com/Sadab-Ansari"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <SiGithub className="hover:text-gray-800 transition" />
+              <SiGithub className="hover:text-gray-800 dark:hover:text-gray-300 transition" />
             </a>
           </div>
         </motion.div>

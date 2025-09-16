@@ -30,12 +30,12 @@ export default function AboutMe() {
         <div className="mb-4 flex items-center gap-3">
           <span className="h-[2px] w-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded" />
 
-          <h2 className="text-sm uppercase tracking-widest text-gray-700 font-semibold">
+          <h2 className="text-sm uppercase tracking-widest text-gray-700 dark:text-gray-300 font-semibold">
             About Me
           </h2>
         </div>
 
-        <p className="text-left text-gray-700 mb-12">
+        <p className="text-left text-gray-700 dark:text-gray-300 mb-12">
           Blending creativity with code & intelligence with data
         </p>
 
@@ -54,9 +54,9 @@ export default function AboutMe() {
               <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full shadow-md" />
 
               <div
-                className={`w-full md:w-[46%] bg-white border border-gray-200 shadow-md rounded-2xl p-6`}
+                className={`w-full md:w-[46%] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md rounded-2xl p-6 transition-colors duration-300`}
               >
-                <p className="text-base md:text-lg font-medium text-gray-800">
+                <p className="text-base md:text-lg font-medium text-gray-800 dark:text-gray-200">
                   {item.text}
                 </p>
               </div>
